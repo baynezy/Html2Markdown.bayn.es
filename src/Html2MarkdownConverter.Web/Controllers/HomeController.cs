@@ -19,6 +19,7 @@ namespace Html2MarkdownConverter.Web.Controllers
         }
 
 		[HttpPost]
+		[ValidateInput(false)]
 	    public ViewResult Index(HtmlConversionViewModel model)
 		{
 			string viewName;
