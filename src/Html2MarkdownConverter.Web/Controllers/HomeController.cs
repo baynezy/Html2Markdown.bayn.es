@@ -1,11 +1,19 @@
 ﻿using System.Web.Mvc;
 using Html2MarkdownConverter.Web.Models;
+using Html2MarkdownConverter.Web.Models.Converter;
 
 namespace Html2MarkdownConverter.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ViewResult Index()
+	    private readonly IConverter _converter;
+
+	    public HomeController(IConverter converter)
+		{
+			_converter = converter;
+		}
+
+	    public ViewResult Index()
         {
             return View();
         }
@@ -17,6 +25,7 @@ namespace Html2MarkdownConverter.Web.Controllers
 
 			if (ModelState.IsValid)
 			{
+				var markdown = _converter.Convert(model.Html);
 				viewName = "Converted";
 			}
 			else

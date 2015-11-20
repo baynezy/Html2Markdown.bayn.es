@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web.Mvc;
 using Html2MarkdownConverter.Web.Controllers;
 using Html2MarkdownConverter.Web.Models;
+using Html2MarkdownConverter.Web.Models.Converter;
+using Moq;
 using NUnit.Framework;
 
 namespace Html2MarkdownConverter.Web.Test.Controllers
@@ -58,6 +60,22 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 		}
 
 		[Test]
+		public void Index_WhenModelValid_ThenCallIConverterConvert()
+		{
+			var model = ValidModel();
+			var mockConverter = new Mock<IConverter>();
+			mockConverter.Setup(m => m.Convert(model.Html)).Returns("some *markdown*");
+
+			var controller = CreateController(mockConverter.Object);
+
+			ValidateModel(model, controller);
+
+			controller.Index(model);
+
+			mockConverter.Verify(f => f.Convert(model.Html), Times.Once);
+		}
+
+		[Test]
 		public void Index_WhenModelInvalid_ThenReturnViewResult()
 		{
 			var controller = CreateController();
@@ -108,9 +126,9 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 			return new HtmlConversionViewModel();
 		}
 
-		private static HomeController CreateController()
+		private static HomeController CreateController(IConverter converter = null)
 		{
-			return new HomeController();
+			return new HomeController(converter ?? new Mock<IConverter>().Object);
 		}
 	}
 }
