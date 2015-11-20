@@ -1,18 +1,10 @@
-﻿@model dynamic
+﻿@model Html2MarkdownConverter.Web.Models.HtmlConversionViewModel
 
-@{
-	Layout = null;
+@using (Html.BeginForm())
+{
+	@Html.LabelFor(m => m.Html)
+	@Html.TextAreaFor(m => m.Html)
+	@Html.ValidationMessageFor(m => m.Html)
+
+	<input type="submit" value="Convert" />
 }
-
-<!DOCTYPE html>
-
-<html>
-	<head>
-		<title>title</title>
-	</head>
-	<body>
-		<div>
-			  
-		</div>
-	</body>
-</html>

@@ -1,16 +1,41 @@
 ﻿using System.Web.Mvc;
+using Html2MarkdownConverter.Web.Models;
+using Html2MarkdownConverter.Web.Models.Converter;
 
 namespace Html2MarkdownConverter.Web.Controllers
 {
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
+	    private readonly IConverter _converter;
 
-        public ActionResult Index()
+	    public HomeController(IConverter converter)
+		{
+			_converter = converter;
+		}
+
+	    public ViewResult Index()
         {
             return View();
         }
 
+		[HttpPost]
+		[ValidateInput(false)]
+	    public ViewResult Index(HtmlConversionViewModel model)
+		{
+			string viewName;
+
+			if (ModelState.IsValid)
+			{
+				var markdown = _converter.Convert(model.Html);
+				model.Markdown = markdown;
+				viewName = "Converted";
+			}
+			else
+			{
+				viewName = "Index";
+			}
+
+			return View(viewName, model);
+		}
     }
 }
