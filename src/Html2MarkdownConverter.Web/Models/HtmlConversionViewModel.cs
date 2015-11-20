@@ -7,5 +7,7 @@ namespace Html2MarkdownConverter.Web.Models
 		[Required]
 		[MinLength(10)]
 		public string Html { get; set; }
+
+		public string Markdown { get; set; }
 	}
 }

@@ -26,6 +26,7 @@ namespace Html2MarkdownConverter.Web.Controllers
 			if (ModelState.IsValid)
 			{
 				var markdown = _converter.Convert(model.Html);
+				model.Markdown = markdown;
 				viewName = "Converted";
 			}
 			else
@@ -33,7 +34,7 @@ namespace Html2MarkdownConverter.Web.Controllers
 				viewName = "Index";
 			}
 
-			return View(viewName);
+			return View(viewName, model);
 		}
     }
 }

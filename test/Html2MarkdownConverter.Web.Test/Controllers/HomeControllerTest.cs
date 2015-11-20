@@ -13,6 +13,8 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 	[TestFixture]
 	class HomeControllerTest
 	{
+		#region Index GET
+
 		[Test]
 		public void Index_WhenCalled_ThenReturnViewResult()
 		{
@@ -33,6 +35,12 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 			Assert.That(result.ViewName, Is.EqualTo(""));
 		}
 
+		#endregion
+
+
+		#region Index POST
+
+		#region Valid Model
 		[Test]
 		public void Index_WhenModelValid_ThenReturnViewResult()
 		{
@@ -60,6 +68,19 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 		}
 
 		[Test]
+		public void Index_WhenModelValid_ThenPassModelToView()
+		{
+			var controller = CreateController();
+			var model = ValidModel();
+
+			ValidateModel(model, controller);
+
+			var result = controller.Index(model);
+
+			Assert.That(result.Model, Is.EqualTo(model));
+		}
+
+		[Test]
 		public void Index_WhenModelValid_ThenCallIConverterConvert()
 		{
 			var model = ValidModel();
@@ -75,6 +96,26 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 			mockConverter.Verify(f => f.Convert(model.Html), Times.Once);
 		}
 
+		[Test]
+		public void Index_WhenModelValid_ThenPopulateMarkdownOfModelWithValueReturnedFromIConverterConvert()
+		{
+			var model = ValidModel();
+			const string markdown = "some *markdown*";
+			var mockConverter = new Mock<IConverter>();
+			mockConverter.Setup(m => m.Convert(model.Html)).Returns(markdown);
+
+			var controller = CreateController(mockConverter.Object);
+
+			ValidateModel(model, controller);
+
+			controller.Index(model);
+
+			Assert.That(model.Markdown, Is.EqualTo(markdown));
+		}
+
+		#endregion
+
+		#region Invalid Model
 		[Test]
 		public void Index_WhenModelInvalid_ThenReturnViewResult()
 		{
@@ -100,6 +141,23 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 
 			Assert.That(result.ViewName, Is.EqualTo("Index"));
 		}
+
+		[Test]
+		public void Index_WhenModelInvalid_ThenPassModelToView()
+		{
+			var controller = CreateController();
+			var model = InvalidModel();
+
+			ValidateModel(model, controller);
+
+			var result = controller.Index(model);
+
+			Assert.That(result.Model, Is.EqualTo(model));
+		}
+
+		#endregion
+
+		#endregion
 
 		private static void ValidateModel(object model, Controller controller)
 		{
