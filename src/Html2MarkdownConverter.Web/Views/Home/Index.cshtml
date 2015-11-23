@@ -1,10 +1,10 @@
 ﻿@model Html2MarkdownConverter.Web.Models.HtmlConversionViewModel
 
-@using (Html.BeginForm())
-{
-	@Html.LabelFor(m => m.Html)
-	@Html.TextAreaFor(m => m.Html)
-	@Html.ValidationMessageFor(m => m.Html)
+<h2>Convert HTML</h2>
 
-	<input type="submit" value="Convert" />
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new {@class = "form-horizontal"}))
+{
+	@Html.TextAreaControlGroupFor(m => m.Html, new {@rows="20"})
+
+	@Html.ButtonFormAction("Convert", Buttons.Primary)
 }

@@ -6,6 +6,7 @@ namespace Html2MarkdownConverter.Web.Models
 	{
 		[Required]
 		[MinLength(10)]
+		[Display(Name = "Html to Format")]
 		public string Html { get; set; }
 
 		public string Markdown { get; set; }
