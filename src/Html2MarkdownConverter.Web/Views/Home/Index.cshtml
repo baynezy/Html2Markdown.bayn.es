@@ -1,0 +1,10 @@
+﻿@model Html2MarkdownConverter.Web.Models.HtmlConversionViewModel
+
+<h2>Convert HTML</h2>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new {@class = "form-horizontal"}))
+{
+	@Html.TextAreaControlGroupFor(m => m.Html, new {@rows="20"})
+
+	@Html.ButtonFormAction("Convert", Buttons.Primary)
+}
