@@ -161,7 +161,7 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 
 		#region About
 		[Test]
-		public void About__WhenCalled_ThenReturnViewResult()
+		public void About_WhenCalled_ThenReturnViewResult()
 		{
 			var controller = CreateController();
 
@@ -171,7 +171,7 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 		}
 
 		[Test]
-		public void About__WhenCalled__ThenReturnCorrectView()
+		public void About_WhenCalled__ThenReturnCorrectView()
 		{
 			var controller = CreateController();
 
