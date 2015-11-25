@@ -159,6 +159,28 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 
 		#endregion
 
+		#region About
+		[Test]
+		public void About_WhenCalled_ThenReturnViewResult()
+		{
+			var controller = CreateController();
+
+			var result = controller.About();
+
+			Assert.That(result, Is.InstanceOf<ViewResult>());
+		}
+
+		[Test]
+		public void About_WhenCalled__ThenReturnCorrectView()
+		{
+			var controller = CreateController();
+
+			var result = controller.About();
+
+			Assert.That(result.ViewName, Is.EqualTo(""));
+		}
+		#endregion
+
 		private static void ValidateModel(object model, Controller controller)
 		{
 			var validationContext = new ValidationContext(model, null, null);

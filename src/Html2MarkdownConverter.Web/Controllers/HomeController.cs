@@ -37,5 +37,10 @@ namespace Html2MarkdownConverter.Web.Controllers
 
 			return View(viewName, model);
 		}
+
+	    public ViewResult About()
+	    {
+		    return View();
+	    }
     }
 }
