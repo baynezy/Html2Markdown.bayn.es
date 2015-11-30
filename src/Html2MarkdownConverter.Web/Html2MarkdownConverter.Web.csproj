@@ -143,6 +143,7 @@
     <Compile Include="Models\Converter\IConverter.cs" />
     <Compile Include="Models\HtmlConversionViewModel.cs" />
     <Compile Include="Models\MetaData\IMeta.cs" />
+    <Compile Include="Models\MetaData\Meta.cs" />
     <Compile Include="Models\NavigationFooterViewModel.cs" />
     <Compile Include="Plumbing\ControllerInstaller.cs" />
     <Compile Include="Plumbing\WindsorControllerFactory.cs" />
