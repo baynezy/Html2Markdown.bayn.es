@@ -8,7 +8,7 @@
 <pre id="markdown">
 @Model.Markdown
 </pre>
-@Html.BootstrapButton("copy to clipboard <span class=\"glyphicon glyphicon-briefcase\"></span>", Buttons.Success, new {id="btnCopyToClipboard"})
+@Html.BootstrapButton("copy to clipboard <span class=\"glyphicon glyphicon-briefcase\"></span>", Buttons.Success, new {id="btnCopyToClipboard",  @data_clipboard_target="markdown"})
 
 @section AdditionalScripts
 {
