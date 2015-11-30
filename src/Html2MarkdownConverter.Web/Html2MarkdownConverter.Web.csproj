@@ -49,8 +49,8 @@
       <HintPath>..\..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Html2Markdown, Version=2.0.2.40469, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Html2Markdown.2.0.2.40469\lib\net45\Html2Markdown.dll</HintPath>
+    <Reference Include="Html2Markdown, Version=2.0.3.6076, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Html2Markdown.2.0.3.6076\lib\net45\Html2Markdown.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
@@ -135,12 +135,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Converter\MarkdownConverter.cs" />
     <Compile Include="Models\Converter\IConverter.cs" />
     <Compile Include="Models\HtmlConversionViewModel.cs" />
+    <Compile Include="Models\MetaData\IMeta.cs" />
+    <Compile Include="Models\MetaData\Meta.cs" />
+    <Compile Include="Models\NavigationFooterViewModel.cs" />
     <Compile Include="Plumbing\ControllerInstaller.cs" />
     <Compile Include="Plumbing\WindsorControllerFactory.cs" />
     <Compile Include="Plumbing\Wiring.cs" />
@@ -194,6 +198,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\About.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Navigation\Footer.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
