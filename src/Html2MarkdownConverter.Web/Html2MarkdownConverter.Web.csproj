@@ -161,7 +161,10 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\css\logo-nav.css" />
     <Content Include="Content\css\main.css" />
+    <Content Include="Content\img\Html2Markdown-logo.png" />
+    <Content Include="Content\img\Html2Markdown-medium.png" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
