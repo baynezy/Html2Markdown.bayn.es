@@ -1,11 +1,18 @@
 ﻿@model Html2MarkdownConverter.Web.Models.HtmlConversionViewModel
 
+
+@{
+	const string placeholder = @"<h2>Example HTML</h2>
+
+<p>This will be <strong>converted</strong>, and replaced with the <em>Markdown</em> equivalent.</p>";
+}
+
 <div class="col-xs-11">
 	<h2>Convert HTML</h2>
-
+	<p>This application will convert HTML to <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax.</p>
 	@using (Html.BeginForm("Index", "Home", FormMethod.Post, new {@class = "form-horizontal"}))
 	{
-		@Html.TextAreaControlGroupFor(m => m.Html, new {@rows="20"})
+		@Html.TextAreaControlGroupFor(m => m.Html, new {@rows="20", placeholder})
 
 		@Html.ButtonFormAction("Convert", Buttons.Primary)
 	}
