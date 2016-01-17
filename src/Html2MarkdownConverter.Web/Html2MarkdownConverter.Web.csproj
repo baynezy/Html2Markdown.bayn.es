@@ -49,16 +49,12 @@
       <HintPath>..\..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Html2Markdown, Version=2.0.9.35508, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Html2Markdown.2.0.9.35508\lib\net45\Html2Markdown.dll</HintPath>
+    <Reference Include="Html2Markdown, Version=2.0.12.17608, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Html2Markdown.2.0.12.17608\lib\net45\Html2Markdown.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="LinqExtensions, Version=0.0.1.14396, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\LinqExtensions.0.0.1.14396\lib\net45\LinqExtensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
