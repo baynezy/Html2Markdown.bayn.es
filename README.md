@@ -2,6 +2,10 @@
 
 This is a web app to showcase the [Html2Markdown](https://github.com/baynezy/Html2Markdown) library.
 
+[![Stories in Ready](https://badge.waffle.io/baynezy/Html2Markdown.bayn.es.svg?label=ready&title=Stories%20in%20Ready)](http://waffle.io/baynezy/Html2Markdown.bayn.es)
+
+---
+
 ## Build Status
 
 <table>
