@@ -21,3 +21,6 @@ This is a web app to showcase the [Html2Markdown](https://github.com/baynezy/Htm
 
 ### Use this utility
 This application is deployed at [http://html2markdown.bayn.es/](http://html2markdown.bayn.es/)
+
+## License
+This project is licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
