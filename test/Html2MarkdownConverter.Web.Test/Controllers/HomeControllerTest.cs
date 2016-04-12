@@ -38,50 +38,50 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 		#endregion
 
 
-		#region Index POST
+		#region Converted POST
 
 		#region Valid Model
 		[Test]
-		public void Index_WhenModelValid_ThenReturnViewResult()
+		public void Converted_WhenModelValid_ThenReturnViewResult()
 		{
 			var controller = CreateController();
 			var model = ValidModel();
 
 			ValidateModel(model, controller);
 
-			var result = controller.Index(model);
+			var result = controller.Converted(model);
 
 			Assert.That(result, Is.InstanceOf<ViewResult>());
 		}
 
 		[Test]
-		public void Index_WhenModelValid_ThenReturnCorrectView()
+		public void Converted_WhenModelValid_ThenReturnCorrectView()
 		{
 			var controller = CreateController();
 			var model = ValidModel();
 
 			ValidateModel(model, controller);
 
-			var result = controller.Index(model);
+			var result = controller.Converted(model);
 
 			Assert.That(result.ViewName, Is.EqualTo("Converted"));
 		}
 
 		[Test]
-		public void Index_WhenModelValid_ThenPassModelToView()
+		public void Converted_WhenModelValid_ThenPassModelToView()
 		{
 			var controller = CreateController();
 			var model = ValidModel();
 
 			ValidateModel(model, controller);
 
-			var result = controller.Index(model);
+			var result = controller.Converted(model);
 
 			Assert.That(result.Model, Is.EqualTo(model));
 		}
 
 		[Test]
-		public void Index_WhenModelValid_ThenCallIConverterConvert()
+		public void Converted_WhenModelValid_ThenCallIConverterConvert()
 		{
 			var model = ValidModel();
 			var mockConverter = new Mock<IConverter>();
@@ -91,13 +91,13 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 
 			ValidateModel(model, controller);
 
-			controller.Index(model);
+			controller.Converted(model);
 
 			mockConverter.Verify(f => f.Convert(model.Html), Times.Once);
 		}
 
 		[Test]
-		public void Index_WhenModelValid_ThenPopulateMarkdownOfModelWithValueReturnedFromIConverterConvert()
+		public void Converted_WhenModelValid_ThenPopulateMarkdownOfModelWithValueReturnedFromIConverterConvert()
 		{
 			var model = ValidModel();
 			const string markdown = "some *markdown*";
@@ -108,7 +108,7 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 
 			ValidateModel(model, controller);
 
-			controller.Index(model);
+			controller.Converted(model);
 
 			Assert.That(model.Markdown, Is.EqualTo(markdown));
 		}
@@ -117,40 +117,40 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 
 		#region Invalid Model
 		[Test]
-		public void Index_WhenModelInvalid_ThenReturnViewResult()
+		public void Converted_WhenModelInvalid_ThenReturnViewResult()
 		{
 			var controller = CreateController();
 			var model = InvalidModel();
 
 			ValidateModel(model, controller);
 
-			var result = controller.Index(model);
+			var result = controller.Converted(model);
 
 			Assert.That(result, Is.InstanceOf<ViewResult>());
 		}
 
 		[Test]
-		public void Index_WhenModelInvalid_ThenReturnCorrectView()
+		public void Converted_WhenModelInvalid_ThenReturnCorrectView()
 		{
 			var controller = CreateController();
 			var model = InvalidModel();
 
 			ValidateModel(model, controller);
 
-			var result = controller.Index(model);
+			var result = controller.Converted(model);
 
 			Assert.That(result.ViewName, Is.EqualTo("Index"));
 		}
 
 		[Test]
-		public void Index_WhenModelInvalid_ThenPassModelToView()
+		public void Converted_WhenModelInvalid_ThenPassModelToView()
 		{
 			var controller = CreateController();
 			var model = InvalidModel();
 
 			ValidateModel(model, controller);
 
-			var result = controller.Index(model);
+			var result = controller.Converted(model);
 
 			Assert.That(result.Model, Is.EqualTo(model));
 		}
