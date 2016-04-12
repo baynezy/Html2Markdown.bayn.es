@@ -10,7 +10,7 @@
 <div class="col-xs-11">
 	<h2>Convert HTML</h2>
 	<p>This application will convert HTML to <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax.</p>
-	@using (Html.BeginForm("Index", "Home", FormMethod.Post, new {@class = "form-horizontal"}))
+	@using (Html.BeginForm("Converted", "Home", FormMethod.Post, new {@class = "form-horizontal"}))
 	{
 		@Html.TextAreaControlGroupFor(m => m.Html, new {@rows="20", placeholder})
 
