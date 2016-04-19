@@ -179,6 +179,7 @@
     <Content Include="Content\img\Html2Markdown-logo.png" />
     <Content Include="Content\img\Html2Markdown-medium.png" />
     <Content Include="Global.asax" />
+    <Content Include="google19b339e1240f939a.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
