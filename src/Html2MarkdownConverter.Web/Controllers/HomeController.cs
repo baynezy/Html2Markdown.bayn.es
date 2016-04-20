@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using AttributeRouting.Web.Mvc;
 using Html2MarkdownConverter.Web.Models;
 using Html2MarkdownConverter.Web.Models.Converter;
 
@@ -18,9 +19,9 @@ namespace Html2MarkdownConverter.Web.Controllers
             return View();
         }
 
-		[HttpPost]
+		[POST("converted")]
 		[ValidateInput(false)]
-	    public ViewResult Index(HtmlConversionViewModel model)
+	    public ViewResult Converted(HtmlConversionViewModel model)
 		{
 			string viewName;
 
