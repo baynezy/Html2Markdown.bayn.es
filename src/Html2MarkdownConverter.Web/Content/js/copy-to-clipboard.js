@@ -1,0 +1,1 @@
+﻿var client = new ZeroClipboard($("#btnCopyToClipboard"));
