@@ -38,7 +38,8 @@
 			ga('create', 'UA-66016141-2', 'auto');
 			ga('send', 'pageview');
 		</script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="@Url.Content("~/Content/bootstrap/js/bootstrap.min.js")"></script>
+		@RenderSection("AdditionalScripts", false)
 	</body>
 </html>
