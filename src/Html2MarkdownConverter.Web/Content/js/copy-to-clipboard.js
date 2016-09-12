@@ -1,3 +1,1 @@
-﻿$(document).ready(function () {
-	var client = new ZeroClipboard($("button#btnCopyToClipboard"));
-});
+﻿var client = new ZeroClipboard($("#btnCopyToClipboard"));
