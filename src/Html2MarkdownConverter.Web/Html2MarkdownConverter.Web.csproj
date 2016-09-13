@@ -176,6 +176,7 @@
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\css\logo-nav.css" />
     <Content Include="Content\css\main.css" />
+    <Content Include="Content\img\favicon.ico" />
     <Content Include="Content\img\Html2Markdown-logo.png" />
     <Content Include="Content\js\copy-to-clipboard.js" />
     <Content Include="Content\img\Html2Markdown-medium.png" />
