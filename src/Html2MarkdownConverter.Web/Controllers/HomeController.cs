@@ -1,47 +1,44 @@
-﻿using System.Web.Mvc;
-using AttributeRouting.Web.Mvc;
-using Html2MarkdownConverter.Web.Models;
+﻿using Html2MarkdownConverter.Web.Models;
 using Html2MarkdownConverter.Web.Models.Converter;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Html2MarkdownConverter.Web.Controllers
+namespace Html2MarkdownConverter.Web.Controllers;
+
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    private readonly IConverter _converter;
+
+    public HomeController(IConverter converter)
     {
-	    private readonly IConverter _converter;
+        _converter = converter;
+    }
 
-	    public HomeController(IConverter converter)
-		{
-			_converter = converter;
-		}
+    public ViewResult Index()
+    {
+        return View();
+    }
 
-	    public ViewResult Index()
+    [HttpPost("converted")]
+    public ViewResult Converted(HtmlConversionViewModel model)
+    {
+        string viewName;
+
+        if (ModelState.IsValid)
         {
-            return View();
+            var markdown = _converter.Convert(model.Html);
+            model.Markdown = markdown;
+            viewName = "Converted";
+        }
+        else
+        {
+            viewName = "Index";
         }
 
-		[POST("converted")]
-		[ValidateInput(false)]
-	    public ViewResult Converted(HtmlConversionViewModel model)
-		{
-			string viewName;
+        return View(viewName, model);
+    }
 
-			if (ModelState.IsValid)
-			{
-				var markdown = _converter.Convert(model.Html);
-				model.Markdown = markdown;
-				viewName = "Converted";
-			}
-			else
-			{
-				viewName = "Index";
-			}
-
-			return View(viewName, model);
-		}
-
-	    public ViewResult About()
-	    {
-		    return View();
-	    }
+    public ViewResult About()
+    {
+        return View();
     }
 }

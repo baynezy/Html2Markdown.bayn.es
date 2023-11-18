@@ -1,19 +1,17 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
 using Html2MarkdownConverter.Web.Controllers;
 using Html2MarkdownConverter.Web.Models;
 using Html2MarkdownConverter.Web.Models.Converter;
 using Moq;
 using NUnit.Framework;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Html2MarkdownConverter.Web.Test.Controllers
+namespace Html2MarkdownConverter.Web.Test.Controllers;
+
+[TestFixture]
+public class HomeControllerTest
 {
-	[TestFixture]
-	class HomeControllerTest
-	{
-		#region Index GET
+    #region Index GET
 
 		[Test]
 		public void Index_WhenCalled_ThenReturnViewResult()
@@ -189,7 +187,7 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 
 			foreach (var validationResult in validationResults)
 			{
-				controller.ModelState.AddModelError(validationResult.MemberNames.First(), validationResult.ErrorMessage);
+				controller.ModelState.AddModelError(validationResult.MemberNames.First(), validationResult?.ErrorMessage);
 			}
 		}
 
@@ -210,5 +208,4 @@ namespace Html2MarkdownConverter.Web.Test.Controllers
 		{
 			return new HomeController(converter ?? new Mock<IConverter>().Object);
 		}
-	}
 }

@@ -1,14 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
-namespace Html2MarkdownConverter.Web.Models
+namespace Html2MarkdownConverter.Web.Models;
+
+public class HtmlConversionViewModel
 {
-	public class HtmlConversionViewModel
-	{
-		[Required]
-		[MinLength(10)]
-		[Display(Name = "Html to Format")]
-		public string Html { get; set; }
+    [Required]
+    [MinLength(10)]
+    [Display(Name = "Html to Format")]
+    [AllowHtml]
+    public string Html { get; set; }
 
-		public string Markdown { get; set; }
-	}
+    public string Markdown { get; set; }
 }

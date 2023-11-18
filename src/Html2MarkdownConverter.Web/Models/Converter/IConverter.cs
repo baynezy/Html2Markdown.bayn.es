@@ -1,7 +1,6 @@
-﻿namespace Html2MarkdownConverter.Web.Models.Converter
+﻿namespace Html2MarkdownConverter.Web.Models.Converter;
+
+public interface IConverter
 {
-	public interface IConverter
-	{
-		string Convert(string html);
-	}
+    string Convert(string html);
 }
