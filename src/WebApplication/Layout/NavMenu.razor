@@ -1,0 +1,25 @@
+﻿@inject NavigationManager NavigationManager
+<nav id="main-nav" class="navbar navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <NavLink
+                class="navbar-brand"
+                href="">
+                <img src="/img/Html2Markdown-logo.png" alt="Html2Markdown"/>
+            </NavLink>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><NavLink href="/convert" @onclick="Reconvert">Convert</NavLink></li>
+                <li><NavLink href="/about">About</NavLink></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+@code {
+    private void Reconvert()
+    {
+        NavigationManager.NavigateTo("/convert", true);
+    }
+}
