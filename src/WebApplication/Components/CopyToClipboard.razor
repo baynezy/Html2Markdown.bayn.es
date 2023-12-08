@@ -1,0 +1,16 @@
+﻿@using Application.Clipboard
+@inject IClipboardService ClipboardService
+
+<button class="btn btn-success" @onclick="CopyTextToClipboard">copy to clipboard</button>
+
+@code {
+    
+    [Parameter]
+    public required string TextToCopy { get; set; }
+
+    private Task CopyTextToClipboard()
+    {
+        return ClipboardService.CopyToClipboardAsync(TextToCopy);
+    }
+
+}

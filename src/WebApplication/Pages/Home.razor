@@ -1,0 +1,55 @@
+﻿@page "/"
+@page "/convert"
+@using WebApplication.Models
+
+@inject Html2Markdown.Converter Converter
+
+@if (_model.Markdown == string.Empty)
+{
+    <div class="col-xs-11">
+        <h2>Convert HTML</h2>
+        <p>This application will convert HTML to <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax.</p>
+        
+        <EditForm Model="@_model" OnValidSubmit="@HandleSubmit">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <InputTextArea
+                    @bind-Value="@_model.Html"
+                    Placeholder="@Placeholder"
+                    Class="form-control"
+                    Rows="20"></InputTextArea>
+                    <span class="help-block"><ValidationMessage For="() => _model.Html"></ValidationMessage></span>
+            </div>
+            
+            <div class="form-group-actions">
+                <button class="btn btn-primary" type="submit">Convert</button>
+            </div>
+        </EditForm>
+    </div>
+}
+else
+{
+    <h2>Original</h2>
+    <pre id="html">
+    @_model.Html
+    </pre>
+    <h2>Converted</h2>
+    <pre id="markdown">
+    @_model.Markdown
+    </pre>
+    <CopyToClipboard TextToCopy="@_model.Markdown"/>
+}
+
+
+@code {
+    const string Placeholder = @"<h2>Example HTML</h2>
+
+<p>This will be <strong>converted</strong>, and replaced with the <em>Markdown</em> equivalent.</p>";
+    private readonly HtmlConversionViewModel _model = new();
+
+    private void HandleSubmit()
+    {
+        var markdown = Converter.Convert(_model.Html);
+        _model.Markdown = markdown;
+    }
+}
