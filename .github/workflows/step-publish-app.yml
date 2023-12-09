@@ -9,10 +9,6 @@ on:
         required: true
         description: 'Branch to deploy'
         type: string
-      bucket-name:
-        required: true
-        description: 'Bucket name to deploy to'
-        type: string
       version:
         required: true
         description: 'Version to deploy'
@@ -43,4 +39,4 @@ jobs:
           --role-session-name MySessionName \
           --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
           --output text))
-          aws s3 sync ./web-publish/wwwroot s3://${{ inputs.bucket-name }} --delete
+          aws s3 sync ./web-publish/wwwroot s3://${{ secrets.BUCKET_NAME }} --delete

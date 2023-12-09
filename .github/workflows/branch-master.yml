@@ -44,7 +44,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.CREATE_PR_TOKEN }}
         run: |
-          echo -e "This PR merges the master branch back into develop.\nThis happens to ensure that the updates that happend on the release branch, i.e. CHANGELOG updates are also present on the develop branch." > msg.txt
+          echo -e "This PR merges the master branch back into develop.\nThis happens to ensure that the updates that happened on the release branch, i.e. CHANGELOG updates are also present on the develop branch." > msg.txt
           
           export msg=$(cat msg.txt) ; gh pr create \
           --head master \
