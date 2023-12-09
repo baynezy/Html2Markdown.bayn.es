@@ -7,11 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.0.3.4] - 2023-12-09
+
 ## [2.0.2.3] - 2023-12-09
 
 ## [2.0.0.1] - 2023-12-09
 
-[Unreleased]: https://github.com/baynezy/Html2Markdown.bayn.es/compare/2.0.2.3...HEAD
+[Unreleased]: https://github.com/baynezy/Html2Markdown.bayn.es/compare/6.0.3.4...HEAD
+
+[6.0.3.4]: https://github.com/baynezy/Html2Markdown.bayn.es/compare/2.0.2.3...6.0.3.4
 
 [2.0.2.3]: https://github.com/baynezy/Html2Markdown.bayn.es/compare/2.0.0.1...2.0.2.3
 
