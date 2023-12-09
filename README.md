@@ -13,7 +13,7 @@ This is a web app to showcase the [Html2Markdown](https://github.com/baynezy/Htm
     </tr>
     <tr>
         <th>develop</th>
-		<td><a href="https://github.com/baynezy/Html2Markdown.bayn.es/actions/workflows/branch-feature.yml"><img src="https://github.com/baynezy/Html2Markdown.bayn.es/actions/workflows/branch-feature.yml/badge.svg?branch=develop" alt="develop" title="develop" /></a></td>
+		<td><a href="https://github.com/baynezy/Html2Markdown.bayn.es/actions/workflows/branch-develop.yml"><img src="https://github.com/baynezy/Html2Markdown.bayn.es/actions/workflows/branch-develop.yml/badge.svg?branch=develop" alt="develop" title="develop" /></a></td>
     </tr>
 </table>
 
