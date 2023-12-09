@@ -19,4 +19,3 @@ jobs:
     with:
       version: ${{ needs.get-version.outputs.version }}
       checkout-ref: ${{ github.event.pull_request.head.sha }}
-      app-environment: Dev
