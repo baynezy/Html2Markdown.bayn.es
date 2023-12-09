@@ -24,7 +24,6 @@ jobs:
   publish-app:
     uses: ./.github/workflows/step-publish-app.yml
     secrets: inherit
-    needs: [deploy-infrastructure]
     with:
       deploy-env: ${{ inputs.deploy-env }}
       deploy-branch: ${{ inputs.deploy-branch }}
