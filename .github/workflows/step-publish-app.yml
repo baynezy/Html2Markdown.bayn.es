@@ -1,0 +1,46 @@
+on:
+  workflow_call:
+    inputs:
+      deploy-env:
+        required: true
+        description: 'Environment to deploy to'
+        type: string
+      deploy-branch:
+        required: true
+        description: 'Branch to deploy'
+        type: string
+      bucket-name:
+        required: true
+        description: 'Bucket name to deploy to'
+        type: string
+      version:
+        required: true
+        description: 'Version to deploy'
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.deploy-env }}
+    steps:
+      - name: Download Published App
+        uses: actions/download-artifact@v3
+        with:
+          name: wasm-app
+          path: ./web-publish
+      - name: Configure AWS CLI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+      - name: Output Bucket Name
+        run: echo "${{inputs.bucket-name}}"
+      - name: Deploy Function to S3
+        run: |
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-session-name MySessionName \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
+          aws s3 sync ./web-publish/wwwroot s3://${{ inputs.bucket-name }} --delete

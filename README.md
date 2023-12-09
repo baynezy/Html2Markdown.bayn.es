@@ -9,11 +9,11 @@ This is a web app to showcase the [Html2Markdown](https://github.com/baynezy/Htm
 <table>
     <tr>
         <th>master</th>
-		<td><a href="https://ci.appveyor.com/project/baynezy/html2markdown-bayn-es"><img src="https://ci.appveyor.com/api/projects/status/ypphatvsv8a3eubo/branch/master?svg=true" alt="master" title="master" /></a></td>
+		<td><a href="https://github.com/baynezy/Html2Markdown.bayn.es/actions/workflows/branch-master.yml"><img src="https://github.com/baynezy/Html2Markdown.bayn.es/actions/workflows/branch-master.yml/badge.svg?branch=master" alt="master" title="master" /></a></td>
     </tr>
     <tr>
         <th>develop</th>
-		<td><a href="https://ci.appveyor.com/project/baynezy/html2markdown-bayn-es"><img src="https://ci.appveyor.com/api/projects/status/ypphatvsv8a3eubo/branch/develop?svg=true" alt="develop" title="develop" /></a></td>
+		<td><a href="https://github.com/baynezy/Html2Markdown.bayn.es/actions/workflows/branch-feature.yml"><img src="https://github.com/baynezy/Html2Markdown.bayn.es/actions/workflows/branch-feature.yml/badge.svg?branch=develop" alt="develop" title="develop" /></a></td>
     </tr>
 </table>
 

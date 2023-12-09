@@ -1,0 +1,32 @@
+on:
+  workflow_call:
+    inputs:
+      deploy-env:
+        required: true
+        description: 'Environment to deploy to'
+        type: string
+      deploy-branch:
+        required: true
+        description: 'Branch to deploy'
+        type: string
+      version:
+        description: 'The version number to use for the build'
+        required: true
+        type: string
+      update-pr:
+        required: false
+        description: 'Update PR with plan'
+        type: boolean
+        default: false
+  
+jobs:
+    
+  publish-app:
+    uses: ./.github/workflows/step-publish-app.yml
+    secrets: inherit
+    needs: [deploy-infrastructure]
+    with:
+      deploy-env: ${{ inputs.deploy-env }}
+      deploy-branch: ${{ inputs.deploy-branch }}
+      bucket-name: ${{ secrets.BUCKET_NAME }}
+      version: ${{ inputs.version }}
