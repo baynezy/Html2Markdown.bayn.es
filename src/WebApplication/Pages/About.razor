@@ -1,5 +1,7 @@
 ﻿@page "/About"
 
+@inject NavigationManager NavigationManager
+
 <h2>About Html2Markdown</h2>
 <p>
     I originally created <a href="https://github.com/baynezy/Html2Markdown">Html2Markdown</a> in 2013, as a .Net class library, so I could create <a href="https://daringfireball.net/projects/markdown/">Markdown</a> versions of my blog posts so I could migrate to a new blogging engine. Back then I only needed support for a subset of the standard, so that was all I included.
@@ -16,3 +18,14 @@
 <code>
     PM> Install-Package Html2Markdown
 </code>
+<hr />
+<div>
+    <button class="btn btn-primary" @onclick="GoToConverter">try it out</button>
+</div>
+
+@code {
+    private void GoToConverter()
+    {
+        NavigationManager.NavigateTo("/convert");
+    }
+}

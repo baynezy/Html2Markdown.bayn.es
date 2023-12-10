@@ -38,6 +38,7 @@ else
     @_model.Markdown
     </pre>
     <CopyToClipboard TextToCopy="@_model.Markdown"/>
+    <button class="btn btn-primary" @onclick="ClearForm">new conversion</button>
 }
 
 
@@ -52,4 +53,11 @@ else
         var markdown = Converter.Convert(_model.Html);
         _model.Markdown = markdown;
     }
+
+    private void ClearForm()
+    {
+        _model.Html = string.Empty;
+        _model.Markdown = string.Empty;
+    }
+
 }
