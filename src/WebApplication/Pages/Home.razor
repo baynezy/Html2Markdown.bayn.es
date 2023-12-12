@@ -1,8 +1,10 @@
 ﻿@page "/"
 @page "/convert"
 @using WebApplication.Models
+@using Html2Markdown
+@using Application.Schemes
 
-@inject Html2Markdown.Converter Converter
+@inject SchemeService SchemeService
 
 @if (_model.Markdown == string.Empty)
 {
@@ -12,6 +14,15 @@
         
         <EditForm Model="@_model" OnValidSubmit="@HandleSubmit">
             <DataAnnotationsValidator />
+            <div class="form-group">
+                <label for="markdown-scheme">Markdown Scheme</label>
+                <select id="markdown-scheme" class="form-control" value="@SelectedScheme" @onchange="ChangeScheme">
+                    @foreach (var scheme in _schemes.Schemes)
+                    {
+                        <option value="@scheme">@scheme</option>
+                    }
+                </select>
+            </div>
             <div class="form-group">
                 <InputTextArea
                     @bind-Value="@_model.Html"
@@ -43,14 +54,24 @@ else
 
 
 @code {
+    // ReSharper disable once UseRawString
     const string Placeholder = @"<h2>Example HTML</h2>
 
 <p>This will be <strong>converted</strong>, and replaced with the <em>Markdown</em> equivalent.</p>";
     private readonly HtmlConversionViewModel _model = new();
+    private string SelectedScheme { get; set; } = "Markdown";
+    private SchemeCollection _schemes = new();
+
+    protected override void OnInitialized()
+    {
+        _schemes = SchemeService.Schemes;
+    }
 
     private void HandleSubmit()
     {
-        var markdown = Converter.Convert(_model.Html);
+        var scheme = _schemes.GetScheme(SelectedScheme);
+        var converter = new Converter(scheme);
+        var markdown = converter.Convert(_model.Html);
         _model.Markdown = markdown;
     }
 
@@ -58,6 +79,14 @@ else
     {
         _model.Html = string.Empty;
         _model.Markdown = string.Empty;
+    }
+
+    private void ChangeScheme(ChangeEventArgs obj)
+    {
+        if (obj.Value is not null)
+        {
+            SelectedScheme = obj.Value.ToString()!;
+        }
     }
 
 }
