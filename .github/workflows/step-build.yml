@@ -53,7 +53,7 @@ jobs:
           versionNumber: ${{inputs.version}}
     - name: Upload App
       if: ${{ github.actor != 'dependabot[bot]' }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: wasm-app
         path: ./web-publish
