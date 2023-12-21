@@ -20,7 +20,7 @@ jobs:
     environment: ${{ inputs.deploy-env }}
     steps:
       - name: Download Published App
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: wasm-app
           path: ./web-publish
