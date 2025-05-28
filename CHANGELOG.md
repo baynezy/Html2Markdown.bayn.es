@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Upgraded Html2Markdown NuGet package from 7.0.2.10 to 7.0.5.14
+
 ## [2.3.3.10] - 2025-01-04
 
 ## [2.3.2.9] - 2024-11-27
