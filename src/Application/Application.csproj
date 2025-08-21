@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Html2Markdown" Version="7.0.5.14" />
+      <PackageReference Include="Html2Markdown" Version="7.0.7.17" />
       <PackageReference Include="Microsoft.JSInterop" Version="8.0.18" />
     </ItemGroup>
 
