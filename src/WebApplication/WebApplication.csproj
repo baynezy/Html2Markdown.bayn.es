@@ -7,12 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Html2Markdown" Version="7.0.5.14" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.16"/>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.5" PrivateAssets="all"/>
+        <PackageReference Include="Html2Markdown" Version="7.1.1.19" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.21" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.10" PrivateAssets="all" />
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="8.0.21" />
       <ProjectReference Include="..\Application\Application.csproj" />
     </ItemGroup>
 
