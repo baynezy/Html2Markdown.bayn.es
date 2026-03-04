@@ -20,12 +20,12 @@ jobs:
     environment: ${{ inputs.deploy-env }}
     steps:
       - name: Download Published App
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           name: wasm-app
           path: ./web-publish
       - name: Configure AWS CLI
-        uses: aws-actions/configure-aws-credentials@v5
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
