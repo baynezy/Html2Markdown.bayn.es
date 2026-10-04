@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgraded to version 8.x of Html2Markdown NuGet package. Removed scheme as an option, as it is no longer supported in the latest version of the package.
+
 ## [2.3.8.15] - 2026-03-11
 
 ## [2.3.7.14] - 2026-03-04
