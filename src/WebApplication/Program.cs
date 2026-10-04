@@ -10,4 +10,5 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped<Converter>();
 builder.Services.AddScoped<IClipboardService, ClipboardService>();
-await builder.Build().RunAsync();
+await builder.Build()
+    .RunAsync();
